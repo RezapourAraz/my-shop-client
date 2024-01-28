@@ -17,28 +17,28 @@ const TopHeader = () => {
         {/* left side */}
         <div className="flex items-center gap-10">
           <div className="flex items-center">
-            <h3 className="text-3xl font-bold">SHOP</h3>
+            <h3 className="text-3xl font-bold text-white">SHOP</h3>
             <div>
-              <FaCircle className="text-2xl" />
+              <FaCircle className="text-2xl text-white" />
             </div>
           </div>
           <div className="cursor-pointer">
-            <HiMenuAlt1 className="text-4xl " />
+            <HiMenuAlt1 className="text-4xl text-white " />
           </div>
         </div>
         {/* right side */}
         <div className="flex gap-4 items-center">
           <div>
-            <IoSearch className="text-2xl" />
+            <IoSearch className="text-2xl text-white" />
           </div>
           <div>
-            <FaRegUser className="text-2xl" />
+            <FaRegUser className="text-2xl text-white" />
           </div>
           <div>
-            <FaRegHeart className="text-2xl" />
+            <FaRegHeart className="text-2xl text-white" />
           </div>
           <div>
-            <CgShoppingBag className="text-2xl" />
+            <CgShoppingBag className="text-2xl text-white" />
           </div>
         </div>
       </div>
