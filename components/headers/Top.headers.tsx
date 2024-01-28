@@ -1,16 +1,21 @@
-import React from "react";
+import React, { Dispatch, FC } from "react";
 
 // Icons
 import { HiMenuAlt1 } from "react-icons/hi";
 import { FaCircle } from "react-icons/fa";
-import { IoSearchOutline } from "react-icons/io5";
-import { AiOutlineUser } from "react-icons/ai";
 import { IoSearch } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { CgShoppingBag } from "react-icons/cg";
+import { IoClose } from "react-icons/io5";
 
-const TopHeader = () => {
+// types
+type ITopHeaderProps = {
+  openSearch: boolean;
+  setOpenSearch: (arg: boolean) => void;
+};
+
+const TopHeader: FC<ITopHeaderProps> = ({ setOpenSearch, openSearch }) => {
   return (
     <header className="p-14 absolute left-0 right-0">
       <div className="flex items-center justify-between">
@@ -27,9 +32,16 @@ const TopHeader = () => {
           </div>
         </div>
         {/* right side */}
-        <div className="flex gap-4 items-center">
-          <div>
-            <IoSearch className="text-2xl text-white" />
+        <div className="flex gap-6 items-center ">
+          <div
+            className="cursor-pointer"
+            onClick={() => setOpenSearch(!openSearch)}
+          >
+            {openSearch ? (
+              <IoClose className="text-3xl text-white" />
+            ) : (
+              <IoSearch className="text-2xl text-white" />
+            )}
           </div>
           <div>
             <FaRegUser className="text-2xl text-white" />

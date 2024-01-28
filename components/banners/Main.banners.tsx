@@ -1,12 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 
 // Icons
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
+import SearchBoxSection from "../sections/SearchBox.sections";
 
-const MainBanner = () => {
+// types
+type IMainBannerProps = {
+  openSearch: boolean;
+};
+
+const MainBanner: FC<IMainBannerProps> = ({ openSearch }) => {
   return (
     <div>
       <div
@@ -46,6 +52,7 @@ const MainBanner = () => {
           <FaPinterest className="text-white" />
         </div>
       </div>
+      {openSearch && <SearchBoxSection />}
     </div>
   );
 };
