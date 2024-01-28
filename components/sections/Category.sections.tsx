@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -55,6 +55,18 @@ const categories = [
 ];
 
 const CategorySection = () => {
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    const resizeHandler = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", resizeHandler);
+
+    return () => window.removeEventListener("resize", resizeHandler);
+  }, []);
+
   return (
     <section className="bg-gray-200">
       <div className="md:container md:mx-auto py-24">
@@ -62,7 +74,15 @@ const CategorySection = () => {
           <h6 className="text-3xl font-bold text-gray-800">Top Categories</h6>
         </div>
         <Swiper
-          slidesPerView={8}
+          slidesPerView={
+            width >= 1440
+              ? 8
+              : width < 1440 && width > 768
+              ? 5
+              : width <= 768 && width >= 420
+              ? 3
+              : 2
+          }
           spaceBetween={30}
           freeMode={true}
           modules={[FreeMode]}
