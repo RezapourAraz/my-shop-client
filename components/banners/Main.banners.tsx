@@ -17,7 +17,7 @@ const MainBanner: FC<IMainBannerProps> = ({ openSearch }) => {
   return (
     <div>
       <div
-        className="w-svw h-svh"
+        className="w-dvh h-dvh"
         style={{
           backgroundImage:
             "url(https://uomo-html.flexkitux.com/images/home/demo5/slider1.jpg)",
@@ -26,7 +26,7 @@ const MainBanner: FC<IMainBannerProps> = ({ openSearch }) => {
           backgroundSize: "cover",
         }}
       />
-      <div className="absolute top-1/2 translate-x-1/2 w-1/2 text-center ">
+      <div className=" absolute top-1/2 translate-x-1/2 w-1/2 text-center ">
         <div>
           <h4 className="text-white md:text-6xl sm:text-4xl">
             Better Things In a Better Way
@@ -55,6 +55,7 @@ const MainBanner: FC<IMainBannerProps> = ({ openSearch }) => {
           <FaPinterest className="text-white" />
         </div>
       </div>
+
       {openSearch && <SearchBoxSection />}
       <MobileMenuSection />
     </div>

@@ -12,7 +12,9 @@ export default function Home() {
     <>
       <TopHeader setOpenSearch={setOpenSearch} openSearch={openSearch} />
       <MainBanner openSearch={openSearch} />
-      <main>{/* <CategorySection /> */}</main>
+      <main>
+        <CategorySection />
+      </main>
     </>
   );
 }

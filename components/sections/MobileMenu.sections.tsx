@@ -7,7 +7,7 @@ import { FaHeart } from "react-icons/fa";
 
 const MobileMenuSection = () => {
   return (
-    <div className="hidden sm:flex sticky bottom-0 p-2 bg-white left-0 right-0">
+    <div className="md:hidden sm:flex sticky bottom-0 p-2 bg-white left-0 right-0">
       <div className="flex items-center justify-around w-full">
         <div className="flex flex-col items-center">
           <FaHome className="text-2xl" />
