@@ -17,8 +17,8 @@ type ITopHeaderProps = {
 
 const TopHeader: FC<ITopHeaderProps> = ({ setOpenSearch, openSearch }) => {
   return (
-    <header className="p-14 absolute left-0 right-0">
-      <div className="flex items-center justify-between">
+    <header className="md:p-14 absolute left-0 right-0 sm:p-4">
+      <div className="hidden md:flex items-center justify-between ">
         {/* left side */}
         <div className="flex items-center gap-10">
           <div className="flex items-center">
@@ -52,6 +52,20 @@ const TopHeader: FC<ITopHeaderProps> = ({ setOpenSearch, openSearch }) => {
           <div>
             <CgShoppingBag className="text-2xl text-white" />
           </div>
+        </div>
+      </div>
+      <div className="md:hidden flex items-center justify-between ">
+        <div className="cursor-pointer">
+          <HiMenuAlt1 className="text-4xl text-white " />
+        </div>
+        <div className="flex items-center">
+          <h3 className="text-3xl font-bold text-white">SHOP</h3>
+          <div>
+            <FaCircle className="text-2xl text-white" />
+          </div>
+        </div>
+        <div>
+          <CgShoppingBag className="text-2xl text-white" />
         </div>
       </div>
     </header>

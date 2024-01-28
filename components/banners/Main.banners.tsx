@@ -6,6 +6,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 import SearchBoxSection from "../sections/SearchBox.sections";
+import MobileMenuSection from "../sections/MobileMenu.sections";
 
 // types
 type IMainBannerProps = {
@@ -25,9 +26,11 @@ const MainBanner: FC<IMainBannerProps> = ({ openSearch }) => {
           backgroundSize: "cover",
         }}
       />
-      <div className="absolute top-1/2 translate-x-1/2 w-1/2 text-center">
+      <div className="absolute top-1/2 translate-x-1/2 w-1/2 text-center ">
         <div>
-          <h4 className="text-white text-6xl">Better Things In a Better Way</h4>
+          <h4 className="text-white md:text-6xl sm:text-4xl">
+            Better Things In a Better Way
+          </h4>
         </div>
         <div className="flex gap-3 justify-center p-3">
           <div className="p-1 hover:border-b-2 transition-all ease-in">
@@ -38,7 +41,7 @@ const MainBanner: FC<IMainBannerProps> = ({ openSearch }) => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-4 left-10 flex gap-3">
+      <div className="hidden absolute bottom-4 left-10 md:flex gap-3">
         <div>
           <FaFacebookF className="text-white" />
         </div>
@@ -53,6 +56,7 @@ const MainBanner: FC<IMainBannerProps> = ({ openSearch }) => {
         </div>
       </div>
       {openSearch && <SearchBoxSection />}
+      <MobileMenuSection />
     </div>
   );
 };
