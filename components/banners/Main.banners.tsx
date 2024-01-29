@@ -19,8 +19,7 @@ const MainBanner: FC<IMainBannerProps> = ({ openSearch }) => {
       <div
         className="w-dvh h-dvh"
         style={{
-          backgroundImage:
-            "url(https://uomo-html.flexkitux.com/images/home/demo5/slider1.jpg)",
+          backgroundImage: "url(slider1.jpg)",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",

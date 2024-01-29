@@ -21,7 +21,7 @@ const CollectionCard: FC<ICollectionCardProps> = ({ collection }) => {
       <div className="min-h-80 relative">
         <img width="100%" height="100%" src={collection.image} />
 
-        <div className="absolute bottom-5 right-2 left-2 p-2 bg-white text-center hover:bg-slate-200">
+        <div className="absolute bottom-5 right-2 left-2 p-2 bg-white text-center hover:bg-gray-100">
           <button className="font-bold ">ADD TO CARD</button>
         </div>
         <div className="absolute top-1 right-2 ">
