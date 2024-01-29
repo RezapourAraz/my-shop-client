@@ -91,9 +91,14 @@ const CategorySection = () => {
         >
           {categories.map((category) => (
             <SwiperSlide key={category.id}>
-              <div className="flex flex-col items-center ">
-                <div className="w-28 h-28 mb-2">
-                  <img src={category.image} width="100%" height="100%" />
+              <div className="flex flex-col items-center p-2">
+                <div className="w-28 h-28 mb-2 cursor-pointer">
+                  <img
+                    src={category.image}
+                    className="hover:scale-105 transition-all ease-in"
+                    width="100%"
+                    height="100%"
+                  />
                 </div>
 
                 <div className="p-1">

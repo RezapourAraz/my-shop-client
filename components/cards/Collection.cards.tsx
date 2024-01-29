@@ -18,13 +18,15 @@ type ICollectionCardProps = {
 const CollectionCard: FC<ICollectionCardProps> = ({ collection }) => {
   return (
     <div>
-      <div className="min-h-80 relative">
-        <img width="100%" height="100%" src={collection.image} />
+      <div className=" relative collection-card">
+        <div>
+          <img width="100%" height="100%" src={collection.image} />
+        </div>
 
-        <div className="absolute bottom-5 right-2 left-2 p-2 bg-white text-center hover:bg-gray-100">
+        <div className="absolute bottom-5 right-2 left-2 p-2 bg-white text-center hover:bg-gray-100 add-to-card">
           <button className="font-bold ">ADD TO CARD</button>
         </div>
-        <div className="absolute top-1 right-2 ">
+        <div className="absolute top-1 right-2 side-action-buttons-container">
           <div className="mt-1">
             <div className="p-3 bg-white rounded-full hover:bg-red-600 hover:text-white">
               <FaEye />

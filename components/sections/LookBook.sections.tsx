@@ -35,9 +35,11 @@ const LookBookSection = () => {
         <div className="mb-8 text-center">
           <h6 className="text-3xl font-bold text-gray-800">Look Book</h6>
         </div>
-        <div className="flex justify-between">
+        <div className="grid md:grid-cols-4 sm:grid-cols-2 justify-between">
           {lookBooks.map((lookBook) => (
-            <LookBookCard key={lookBook.id} lookBook={lookBook} />
+            <div key={lookBook.id} className="grid-col-1">
+              <LookBookCard lookBook={lookBook} />
+            </div>
           ))}
         </div>
       </div>

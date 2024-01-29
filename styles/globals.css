@@ -26,6 +26,30 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
+.collection-card {
+  overflow: hidden;
+}
+.collection-card:hover .side-action-buttons-container {
+  opacity: 1;
+  right: 10px;
+}
+.collection-card .side-action-buttons-container {
+  opacity: 0;
+  right: -40px;
+  transition: all 0.3s ease;
+}
+
+.collection-card .add-to-card {
+  opacity: 0;
+  transition: all 0.3s ease;
+  bottom: -50px;
+}
+
+.collection-card:hover .add-to-card {
+  opacity: 1;
+  bottom: 15px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
