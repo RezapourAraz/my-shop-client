@@ -58,6 +58,7 @@ const CategorySection = () => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
+    setWidth(window.innerWidth);
     const resizeHandler = () => {
       setWidth(window.innerWidth);
     };

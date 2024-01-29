@@ -4,6 +4,7 @@ import { useState } from "react";
 import MainBanner from "@/components/banners/Main.banners";
 import TopHeader from "@/components/headers/Top.headers";
 import CategorySection from "@/components/sections/Category.sections";
+import TopCollectionSection from "@/components/sections/TopCollection.sections";
 
 export default function Home() {
   const [openSearch, setOpenSearch] = useState<boolean>(false);
@@ -14,6 +15,7 @@ export default function Home() {
       <MainBanner openSearch={openSearch} />
       <main>
         <CategorySection />
+        <TopCollectionSection />
       </main>
     </>
   );
