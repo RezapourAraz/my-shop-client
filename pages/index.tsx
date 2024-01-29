@@ -7,6 +7,7 @@ import CategorySection from "@/components/sections/Category.sections";
 import TopCollectionSection from "@/components/sections/TopCollection.sections";
 import LookBookSection from "@/components/sections/LookBook.sections";
 import BestSellersSection from "@/components/sections/BestSellers.sections";
+import DealSection from "@/components/sections/Deal.sections";
 
 export default function Home() {
   const [openSearch, setOpenSearch] = useState<boolean>(false);
@@ -20,6 +21,7 @@ export default function Home() {
         <TopCollectionSection />
         <LookBookSection />
         <BestSellersSection />
+        <DealSection />
       </main>
     </>
   );

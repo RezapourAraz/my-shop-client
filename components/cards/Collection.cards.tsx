@@ -13,9 +13,13 @@ type ICollectionCardProps = {
     category: string;
     price: number;
   };
+  deal: boolean;
 };
 
-const CollectionCard: FC<ICollectionCardProps> = ({ collection }) => {
+const CollectionCard: FC<ICollectionCardProps> = ({
+  collection,
+  deal = false,
+}) => {
   return (
     <div>
       <div className=" relative collection-card">
@@ -40,9 +44,19 @@ const CollectionCard: FC<ICollectionCardProps> = ({ collection }) => {
         </div>
       </div>
       <div>
-        <p className="text-sm">{collection.category}</p>
-        <p className="font-bold cursor-pointer">{collection.title}</p>
-        <p className="text-sm">${collection.price.toFixed(2)}</p>
+        <p className={`text-sm ${deal ? "text-white" : "initial"}`}>
+          {collection.category}
+        </p>
+        <p
+          className={`font-bold cursor-pointer ${
+            deal ? "text-white" : "initial"
+          }`}
+        >
+          {collection.title}
+        </p>
+        <p className={`text-sm ${deal ? "text-white" : "initial"}`}>
+          ${collection.price.toFixed(2)}
+        </p>
       </div>
     </div>
   );
