@@ -80,6 +80,8 @@ const collections = [
   },
 ];
 const TopCollectionSection = () => {
+  // states
+  const [selectedTab, setSelectedTab] = useState("all");
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
@@ -93,8 +95,6 @@ const TopCollectionSection = () => {
     return () => window.removeEventListener("resize", resizeHandler);
   }, []);
 
-  // states
-  const [selectedTab, setSelectedTab] = useState("all");
   return (
     <section className="bg-white">
       <div className="md:container md:mx-auto py-24">
