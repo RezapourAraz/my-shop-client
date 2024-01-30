@@ -12,14 +12,21 @@ import OurBlogsSection from "@/components/sections/OurBlogs.sections";
 import InfoSection from "@/components/sections/Info.sections";
 import SocialSection from "@/components/sections/Social.sections";
 import MainFooter from "@/components/footers/Main.footers";
+import LoginSection from "@/components/sections/Login.sections";
 
 export default function Home() {
   const [openSearch, setOpenSearch] = useState<boolean>(false);
+  const [openAccount, setOpenAccount] = useState<boolean>(false);
 
   return (
     <>
-      <TopHeader setOpenSearch={setOpenSearch} openSearch={openSearch} />
-      <MainBanner openSearch={openSearch} />
+      <TopHeader
+        setOpenSearch={setOpenSearch}
+        openSearch={openSearch}
+        setOpenAccount={setOpenAccount}
+      />
+      <MainBanner openSearch={openSearch} setOpenSearch={setOpenSearch} />
+      <LoginSection setOpenAccount={setOpenAccount} openAccount={openAccount} />
       <main>
         <CategorySection />
         <TopCollectionSection />

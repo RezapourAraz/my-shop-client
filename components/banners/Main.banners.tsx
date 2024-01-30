@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 
 // Icons
 import { FaInstagram } from "react-icons/fa";
@@ -11,9 +11,10 @@ import MobileMenuSection from "../sections/MobileMenu.sections";
 // types
 type IMainBannerProps = {
   openSearch: boolean;
+  setOpenSearch: Dispatch<SetStateAction<boolean>>;
 };
 
-const MainBanner: FC<IMainBannerProps> = ({ openSearch }) => {
+const MainBanner: FC<IMainBannerProps> = ({ openSearch, setOpenSearch }) => {
   return (
     <div>
       <div
@@ -55,7 +56,7 @@ const MainBanner: FC<IMainBannerProps> = ({ openSearch }) => {
         </div>
       </div>
 
-      {openSearch && <SearchBoxSection />}
+      {openSearch && <SearchBoxSection setOpenSearch={setOpenSearch} />}
       <MobileMenuSection />
     </div>
   );

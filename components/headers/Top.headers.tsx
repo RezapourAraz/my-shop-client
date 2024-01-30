@@ -1,4 +1,4 @@
-import React, { Dispatch, FC } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 
 // Icons
 import { HiMenuAlt1 } from "react-icons/hi";
@@ -12,10 +12,15 @@ import { IoClose } from "react-icons/io5";
 // types
 type ITopHeaderProps = {
   openSearch: boolean;
-  setOpenSearch: (arg: boolean) => void;
+  setOpenSearch: Dispatch<SetStateAction<boolean>>;
+  setOpenAccount: Dispatch<SetStateAction<boolean>>;
 };
 
-const TopHeader: FC<ITopHeaderProps> = ({ setOpenSearch, openSearch }) => {
+const TopHeader: FC<ITopHeaderProps> = ({
+  openSearch,
+  setOpenSearch,
+  setOpenAccount,
+}) => {
   return (
     <header className="md:p-14 absolute left-0 right-0 sm:p-4">
       <div className="hidden md:flex items-center justify-between ">
@@ -43,7 +48,7 @@ const TopHeader: FC<ITopHeaderProps> = ({ setOpenSearch, openSearch }) => {
               <IoSearch className="text-2xl text-white" />
             )}
           </div>
-          <div>
+          <div className="cursor-pointer" onClick={() => setOpenAccount(true)}>
             <FaRegUser className="text-2xl text-white" />
           </div>
           <div>
