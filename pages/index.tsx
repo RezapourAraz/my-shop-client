@@ -9,6 +9,7 @@ import LookBookSection from "@/components/sections/LookBook.sections";
 import BestSellersSection from "@/components/sections/BestSellers.sections";
 import DealSection from "@/components/sections/Deal.sections";
 import OurBlogsSection from "@/components/sections/OurBlogs.sections";
+import InfoSection from "@/components/sections/Info.sections";
 
 export default function Home() {
   const [openSearch, setOpenSearch] = useState<boolean>(false);
@@ -24,6 +25,7 @@ export default function Home() {
         <BestSellersSection />
         <DealSection />
         <OurBlogsSection />
+        <InfoSection />
       </main>
     </>
   );
