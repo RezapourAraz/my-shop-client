@@ -11,6 +11,7 @@ import DealSection from "@/components/sections/Deal.sections";
 import OurBlogsSection from "@/components/sections/OurBlogs.sections";
 import InfoSection from "@/components/sections/Info.sections";
 import SocialSection from "@/components/sections/Social.sections";
+import MainFooter from "@/components/footers/Main.footers";
 
 export default function Home() {
   const [openSearch, setOpenSearch] = useState<boolean>(false);
@@ -28,6 +29,7 @@ export default function Home() {
         <OurBlogsSection />
         <InfoSection />
         <SocialSection />
+        <MainFooter />
       </main>
     </>
   );
