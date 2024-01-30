@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { FreeMode } from "swiper/modules";
+import ProductModal from "../modals/Product.modals";
 
 const tabs = [
   {
@@ -79,9 +80,22 @@ const collections = [
     price: 63,
   },
 ];
+
+const product = {
+  id: 1,
+  image: "quickview_1.jpg",
+  title: "Lightweight Puffer Jacket With a Hood",
+  price: 449,
+  desc: "Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, ut aliquet magna posuere eget.",
+  colors: ["red", "black", "grey"],
+  sizes: ["xs", "s", "m", "l", "xl"],
+  categories: ["men", "jackets", "Casual & Urban Wear"],
+  tags: ["biker", "bomber", "black", "leather"],
+};
 const TopCollectionSection = () => {
   // states
   const [selectedTab, setSelectedTab] = useState("all");
+  const [openModal, setOpenModal] = useState(false);
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
@@ -133,11 +147,17 @@ const TopCollectionSection = () => {
         >
           {collections.map((collection) => (
             <SwiperSlide key={collection.id}>
-              <CollectionCard collection={collection} />
+              <CollectionCard
+                setOpenModal={setOpenModal}
+                collection={collection}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
+      {openModal && (
+        <ProductModal setOpenModal={setOpenModal} product={product} />
+      )}
     </section>
   );
 };
