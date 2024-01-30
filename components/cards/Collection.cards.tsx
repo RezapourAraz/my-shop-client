@@ -13,7 +13,7 @@ type ICollectionCardProps = {
     category: string;
     price: number;
   };
-  deal: boolean;
+  deal?: boolean;
 };
 
 const CollectionCard: FC<ICollectionCardProps> = ({
