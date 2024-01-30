@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 // import required modules
 import { FreeMode } from "swiper/modules";
 import CollectionCard from "../cards/Collection.cards";
+import Countdown from "react-countdown";
 
 const bestSellers = [
   {
@@ -43,6 +44,45 @@ const bestSellers = [
   },
 ];
 
+const renderer = ({ days, hours, minutes, seconds }: any) => {
+  // Render a countdown
+  return (
+    <div className="flex gap-2 ">
+      <div className="text-center gap-2 flex flex-col ">
+        <p className="text-white text-2xl">{days >= 10 ? days : `0${days}`}</p>
+        <p className="text-white text-sm">Days</p>
+      </div>
+      <div>
+        <p className="text-white text-lg">:</p>
+      </div>
+      <div className="text-center gap-2 flex flex-col ">
+        <p className="text-white text-2xl">
+          {hours >= 10 ? hours : `0${hours}`}
+        </p>
+        <p className="text-white text-sm">Hours</p>
+      </div>
+      <div>
+        <p className="text-white text-lg">:</p>
+      </div>
+      <div className="text-center gap-2 flex flex-col ">
+        <p className="text-white text-2xl">
+          {minutes >= 10 ? minutes : `0${minutes}`}
+        </p>
+        <p className="text-white text-sm">Minuets</p>
+      </div>
+      <div>
+        <p className="text-white text-lg">:</p>
+      </div>
+      <div className="text-center gap-2 flex flex-col ">
+        <p className="text-white text-2xl">
+          {seconds >= 10 ? seconds : `0${seconds}`}
+        </p>
+        <p className="text-white text-sm">Seconds</p>
+      </div>
+    </div>
+  );
+};
+
 const DealSection = () => {
   const [width, setWidth] = useState(0);
 
@@ -56,6 +96,9 @@ const DealSection = () => {
 
     return () => window.removeEventListener("resize", resizeHandler);
   }, []);
+
+  // Renderer callback with condition
+
   return (
     <section
       className=""
@@ -78,8 +121,9 @@ const DealSection = () => {
               <p className="text-white text-3xl">Up to 60% Off</p>
             </div>
             <div className="mt-4">
-              <p className="text-white text-2xl">48 : 08 : 35 : 44</p>
-              <p className="text-white text-sm">DAYS HOURS MINS SEC</p>
+              <Countdown date={Date.now() + 10000000} renderer={renderer} />
+              {/* <p className="text-white text-2xl">48 : 08 : 35 : 44</p>
+              <p className="text-white text-sm">DAYS HOURS MINS SEC</p> */}
             </div>
             <div className="mt-4">
               <p className="text-white text-md">View All</p>
