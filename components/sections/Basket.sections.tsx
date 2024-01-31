@@ -9,6 +9,36 @@ type IBasketSectionProps = {
   setOpenBasket: Dispatch<SetStateAction<boolean>>;
 };
 
+const basketItems = [
+  {
+    id: 1,
+    title: "Zessi Dresses",
+    color: "Yellow",
+    size: "L",
+    price: 98,
+    count: 1,
+    image: "cart-item-1.jpg",
+  },
+  {
+    id: 2,
+    title: "Zessi Dresses",
+    color: "Yellow",
+    size: "L",
+    price: 98,
+    count: 1,
+    image: "cart-item-2.jpg",
+  },
+  {
+    id: 3,
+    title: "Zessi Dresses",
+    color: "Yellow",
+    size: "L",
+    price: 98,
+    count: 1,
+    image: "cart-item-3.jpg",
+  },
+];
+
 const BasketSection: FC<IBasketSectionProps> = ({
   openBasket,
   setOpenBasket,
@@ -32,7 +62,7 @@ const BasketSection: FC<IBasketSectionProps> = ({
         onClick={() => setOpenBasket(false)}
       />
       <div
-        className={`fixed top-0 right-0 bg-white h-full w-3/12 z-10 ${
+        className={`fixed top-0 right-0 bg-white h-full w-3/12 z-10  ${
           openBasket ? "translate-x-0" : "translate-x-full"
         } transition-all`}
       >
@@ -44,7 +74,54 @@ const BasketSection: FC<IBasketSectionProps> = ({
             <IoClose className="text-2xl" />
           </div>
         </div>
-        <div></div>
+        <div className="p-6 ">
+          {basketItems.map((item) => (
+            <div key={item.id} className="flex justify-between my-4">
+              <div className="flex">
+                <div>
+                  <img src={item.image} alt={item.title} />
+                </div>
+                <div className="p-2 ">
+                  <h6 className="text-md font-bold">{item.title}</h6>
+                  <p className="text-sm">{item.color}</p>
+                  <p className="text-sm">{item.size}</p>
+                  <div className="flex items-center">
+                    <button className="p-2">-</button>
+                    <h6 className="text-md font-bold">{item.count}</h6>
+                    <button className="p-2">+</button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center flex-col justify-between">
+                <div className="cursor-pointer">
+                  <IoClose className="text-xl" />
+                </div>
+                <div>
+                  <h6 className="text-md font-bold">${item.price}</h6>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="p-6 fixed bottom-0 left-0 right-0 border-t-2">
+          <div className="flex justify-between">
+            <div>
+              <h6 className="text-md font-bold">SUBTOTAL</h6>
+            </div>
+            <div>
+              <h6 className="text-md font-bold ">$989.00</h6>
+            </div>
+          </div>
+
+          <div>
+            <button className="bg-gray-500 text-white p-3 w-full mt-4">
+              VIEW BAG
+            </button>
+            <button className="bg-black text-white p-3 w-full mt-4">
+              CHECKOUT
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
