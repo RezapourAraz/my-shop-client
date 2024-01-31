@@ -82,6 +82,28 @@ const ProductModal: FC<IProductModalProps> = ({ product, setOpenModal }) => {
               <FiShare2 />
             </div>
           </div>
+          <div className="mt-20">
+            <p className="text-gray-500">
+              SKU: <span>N/A</span>
+            </p>
+            <div className="flex gap-1">
+              <p className="text-gray-500">CATEGORY:</p>
+              {product.categories.map((category) => (
+                <div>
+                  <p className="text-gray-500">{category},</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex gap-1">
+              <p className="text-gray-500">TAGS:</p>
+              {product.tags.map((tag) => (
+                <div>
+                  <p className="text-gray-500">{tag},</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </BaseModal>
