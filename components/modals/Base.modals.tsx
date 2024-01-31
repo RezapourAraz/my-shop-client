@@ -1,11 +1,22 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, useEffect } from "react";
 
-type IBaseModalProps = {
+export interface BaseModalProps {
+  open: boolean;
   children: ReactNode;
   handleClose: () => void;
-};
+}
 
-const BaseModal: FC<IBaseModalProps> = ({ children, handleClose }) => {
+const BaseModal: FC<BaseModalProps> = ({ handleClose, children, open }) => {
+  useEffect(() => {
+    const body = document.getElementsByTagName("body");
+    if (open) {
+      body[0].style.overflow = "hidden";
+    } else {
+      body[0].style.overflow = "auto";
+    }
+  }, [open]);
+
+  if (!open) return null;
   return (
     <div>
       <div

@@ -20,11 +20,16 @@ type IProductModalProps = {
     tags: string[];
   };
   setOpenModal: Dispatch<SetStateAction<boolean>>;
+  openModal: boolean;
 };
 
-const ProductModal: FC<IProductModalProps> = ({ product, setOpenModal }) => {
+const ProductModal: FC<IProductModalProps> = ({
+  product,
+  openModal,
+  setOpenModal,
+}) => {
   return (
-    <BaseModal handleClose={() => setOpenModal(false)}>
+    <BaseModal open={openModal} handleClose={() => setOpenModal(false)}>
       <div className="grid grid-cols-7 " style={{ width: "1200px" }}>
         <div className="col-span-3 h-full">
           <img

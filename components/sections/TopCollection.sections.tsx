@@ -155,9 +155,12 @@ const TopCollectionSection = () => {
           ))}
         </Swiper>
       </div>
-      {openModal && (
-        <ProductModal setOpenModal={setOpenModal} product={product} />
-      )}
+
+      <ProductModal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        product={product}
+      />
     </section>
   );
 };

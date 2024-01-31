@@ -13,10 +13,12 @@ import InfoSection from "@/components/sections/Info.sections";
 import SocialSection from "@/components/sections/Social.sections";
 import MainFooter from "@/components/footers/Main.footers";
 import LoginSection from "@/components/sections/Login.sections";
+import BasketSection from "@/components/sections/Basket.sections";
 
 export default function Home() {
   const [openSearch, setOpenSearch] = useState<boolean>(false);
   const [openAccount, setOpenAccount] = useState<boolean>(false);
+  const [openBasket, setOpenBasket] = useState<boolean>(false);
 
   return (
     <>
@@ -24,9 +26,11 @@ export default function Home() {
         setOpenSearch={setOpenSearch}
         openSearch={openSearch}
         setOpenAccount={setOpenAccount}
+        setOpenBasket={setOpenBasket}
       />
       <MainBanner openSearch={openSearch} setOpenSearch={setOpenSearch} />
       <LoginSection setOpenAccount={setOpenAccount} openAccount={openAccount} />
+      <BasketSection setOpenBasket={setOpenBasket} openBasket={openBasket} />
       <main>
         <CategorySection />
         <TopCollectionSection />

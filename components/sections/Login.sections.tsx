@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction } from "react";
+import React, { Dispatch, FC, SetStateAction, useEffect } from "react";
 import Link from "next/link";
 
 // types
@@ -11,6 +11,16 @@ const LoginSection: FC<ILoginSectionProps> = ({
   setOpenAccount,
   openAccount,
 }) => {
+  useEffect(() => {
+    const body = document.getElementsByTagName("body");
+
+    if (openAccount) {
+      body[0].style.overflow = "hidden";
+    } else {
+      body[0].style.overflow = "auto";
+    }
+  }, [openAccount]);
+
   return (
     <>
       <div

@@ -14,12 +14,14 @@ type ITopHeaderProps = {
   openSearch: boolean;
   setOpenSearch: Dispatch<SetStateAction<boolean>>;
   setOpenAccount: Dispatch<SetStateAction<boolean>>;
+  setOpenBasket: Dispatch<SetStateAction<boolean>>;
 };
 
 const TopHeader: FC<ITopHeaderProps> = ({
   openSearch,
   setOpenSearch,
   setOpenAccount,
+  setOpenBasket,
 }) => {
   return (
     <header className="md:p-14 absolute left-0 right-0 sm:p-4">
@@ -54,7 +56,7 @@ const TopHeader: FC<ITopHeaderProps> = ({
           <div>
             <FaRegHeart className="text-2xl text-white" />
           </div>
-          <div>
+          <div className="cursor-pointer" onClick={() => setOpenBasket(true)}>
             <CgShoppingBag className="text-2xl text-white" />
           </div>
         </div>
