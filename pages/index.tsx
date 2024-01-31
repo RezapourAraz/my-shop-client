@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 // Components
-import MainBanner from "@/components/banners/Main.banners";
-import TopHeader from "@/components/headers/Top.headers";
 import CategorySection from "@/components/sections/Category.sections";
 import TopCollectionSection from "@/components/sections/TopCollection.sections";
 import LookBookSection from "@/components/sections/LookBook.sections";
@@ -11,37 +9,19 @@ import DealSection from "@/components/sections/Deal.sections";
 import OurBlogsSection from "@/components/sections/OurBlogs.sections";
 import InfoSection from "@/components/sections/Info.sections";
 import SocialSection from "@/components/sections/Social.sections";
-import MainFooter from "@/components/footers/Main.footers";
-import LoginSection from "@/components/sections/Login.sections";
-import BasketSection from "@/components/sections/Basket.sections";
+import MainLayout from "@/layouts/Main.layouts";
 
 export default function Home() {
-  const [openSearch, setOpenSearch] = useState<boolean>(false);
-  const [openAccount, setOpenAccount] = useState<boolean>(false);
-  const [openBasket, setOpenBasket] = useState<boolean>(false);
-
   return (
-    <>
-      <TopHeader
-        setOpenSearch={setOpenSearch}
-        openSearch={openSearch}
-        setOpenAccount={setOpenAccount}
-        setOpenBasket={setOpenBasket}
-      />
-      <MainBanner openSearch={openSearch} setOpenSearch={setOpenSearch} />
-      <LoginSection setOpenAccount={setOpenAccount} openAccount={openAccount} />
-      <BasketSection setOpenBasket={setOpenBasket} openBasket={openBasket} />
-      <main>
-        <CategorySection />
-        <TopCollectionSection />
-        <LookBookSection />
-        <BestSellersSection />
-        <DealSection />
-        <OurBlogsSection />
-        <InfoSection />
-        <SocialSection />
-        <MainFooter />
-      </main>
-    </>
+    <MainLayout>
+      <CategorySection />
+      <TopCollectionSection />
+      <LookBookSection />
+      <BestSellersSection />
+      <DealSection />
+      <OurBlogsSection />
+      <InfoSection />
+      <SocialSection />
+    </MainLayout>
   );
 }

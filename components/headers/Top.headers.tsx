@@ -8,6 +8,7 @@ import { FaRegUser } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { CgShoppingBag } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
+import { useRouter } from "next/router";
 
 // types
 type ITopHeaderProps = {
@@ -23,8 +24,15 @@ const TopHeader: FC<ITopHeaderProps> = ({
   setOpenAccount,
   setOpenBasket,
 }) => {
+  // hooks
+  const router = useRouter();
+
   return (
-    <header className="md:p-14 absolute left-0 right-0 sm:p-4">
+    <header
+      className={`md:p-14 ${router.route !== "/" ? "initial" : "absolute"}  ${
+        router.route !== "/" ? "bg-black" : "bg-transparent"
+      } left-0 right-0 sm:p-4`}
+    >
       <div className="hidden md:flex items-center justify-between ">
         {/* left side */}
         <div className="flex items-center gap-10">
