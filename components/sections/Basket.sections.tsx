@@ -37,6 +37,15 @@ const basketItems = [
     count: 1,
     image: "cart-item-3.jpg",
   },
+  {
+    id: 4,
+    title: "Zessi Dresses",
+    color: "Yellow",
+    size: "L",
+    price: 98,
+    count: 1,
+    image: "cart-item-3.jpg",
+  },
 ];
 
 const BasketSection: FC<IBasketSectionProps> = ({
@@ -66,7 +75,7 @@ const BasketSection: FC<IBasketSectionProps> = ({
           openBasket ? "translate-x-0" : "translate-x-full"
         } transition-all`}
       >
-        <div className="bg-gray-200 p-6 flex justify-between items-center">
+        <div className="bg-gray-200 p-6 flex justify-between items-center h-20">
           <div className="">
             <h5 className="font-bold">SHOPPING BAG(1)</h5>
           </div>
@@ -74,7 +83,10 @@ const BasketSection: FC<IBasketSectionProps> = ({
             <IoClose className="text-2xl" />
           </div>
         </div>
-        <div className="p-6 ">
+        <div
+          className="p-6 overflow-y-auto "
+          style={{ height: "calc(100vh - 192px - 80px)" }}
+        >
           {basketItems.map((item) => (
             <div key={item.id} className="flex justify-between my-4">
               <div className="flex">
@@ -103,7 +115,7 @@ const BasketSection: FC<IBasketSectionProps> = ({
             </div>
           ))}
         </div>
-        <div className="p-6 fixed bottom-0 left-0 right-0 border-t-2">
+        <div className="p-6 fixed bottom-0 left-0 right-0 border-t-2 bg-white h-48">
           <div className="flex justify-between">
             <div>
               <h6 className="text-md font-bold">SUBTOTAL</h6>

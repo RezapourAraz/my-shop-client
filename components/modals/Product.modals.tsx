@@ -49,7 +49,7 @@ const ProductModal: FC<IProductModalProps> = ({
           <div className="flex gap-8 my-8 items-center">
             <p className="font-bold">SIZES </p>
             {product.sizes.map((size) => (
-              <div className="border-2 p-1 w-10 h-10 text-center">
+              <div key={size} className="border-2 p-1 w-10 h-10 text-center">
                 <h6>{size}</h6>
               </div>
             ))}
@@ -60,6 +60,7 @@ const ProductModal: FC<IProductModalProps> = ({
             <div className="flex gap-2">
               {product.colors.map((color) => (
                 <div
+                  key={color}
                   className={` p-1 w-6 h-6 text-center rounded-full`}
                   style={{ backgroundColor: color }}
                 />
@@ -94,7 +95,7 @@ const ProductModal: FC<IProductModalProps> = ({
             <div className="flex gap-1">
               <p className="text-gray-500">CATEGORY:</p>
               {product.categories.map((category) => (
-                <div>
+                <div key={category}>
                   <p className="text-gray-500">{category},</p>
                 </div>
               ))}
@@ -103,7 +104,7 @@ const ProductModal: FC<IProductModalProps> = ({
             <div className="flex gap-1">
               <p className="text-gray-500">TAGS:</p>
               {product.tags.map((tag) => (
-                <div>
+                <div key={tag}>
                   <p className="text-gray-500">{tag},</p>
                 </div>
               ))}

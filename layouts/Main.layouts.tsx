@@ -11,9 +11,10 @@ import { useRouter } from "next/router";
 // types
 type MainLayoutProps = {
   children: ReactNode;
+  basket: [];
 };
 
-const MainLayout: FC<MainLayoutProps> = ({ children }) => {
+const MainLayout: FC<MainLayoutProps> = ({ children, basket }) => {
   // hooks
   const router = useRouter();
 
@@ -22,8 +23,6 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   const [openAccount, setOpenAccount] = useState<boolean>(false);
   const [openBasket, setOpenBasket] = useState<boolean>(false);
 
-  console.log(router);
-
   return (
     <>
       <TopHeader
@@ -31,6 +30,7 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
         openSearch={openSearch}
         setOpenAccount={setOpenAccount}
         setOpenBasket={setOpenBasket}
+        basket={basket}
       />
       {router.route === "/" && (
         <MainBanner openSearch={openSearch} setOpenSearch={setOpenSearch} />
