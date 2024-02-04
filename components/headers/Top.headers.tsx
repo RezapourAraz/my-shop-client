@@ -16,7 +16,6 @@ type ITopHeaderProps = {
   setOpenSearch: Dispatch<SetStateAction<boolean>>;
   setOpenAccount: Dispatch<SetStateAction<boolean>>;
   setOpenBasket: Dispatch<SetStateAction<boolean>>;
-  basket: [];
 };
 
 const TopHeader: FC<ITopHeaderProps> = ({
@@ -24,10 +23,10 @@ const TopHeader: FC<ITopHeaderProps> = ({
   setOpenSearch,
   setOpenAccount,
   setOpenBasket,
-  basket,
 }) => {
   // hooks
   const router = useRouter();
+  const basket = [];
 
   return (
     <header

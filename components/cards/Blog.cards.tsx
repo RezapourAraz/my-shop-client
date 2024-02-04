@@ -1,14 +1,11 @@
 import React, { FC } from "react";
 
+// type
+import { IBlog } from "../sections/OurBlogs.sections";
+
 // types
 type IBlogCardProps = {
-  blog: {
-    id: number;
-    title: string;
-    image: string;
-    user: string;
-    date: Date;
-  };
+  blog: IBlog;
 };
 
 const BlogCard: FC<IBlogCardProps> = ({ blog }) => {
@@ -22,7 +19,7 @@ const BlogCard: FC<IBlogCardProps> = ({ blog }) => {
           <span className="text-gray-500 font-bold">
             BY {blog.user.toLocaleUpperCase()}
           </span>
-          -{blog.date.toDateString()}
+          -{new Date(blog.date).toDateString()}
         </p>
       </div>
       <div>

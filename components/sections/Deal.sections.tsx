@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -44,6 +44,18 @@ const bestSellers = [
   },
 ];
 
+type IDeal = {
+  id: number;
+  image: string;
+  category: string;
+  title: string;
+  price: number;
+};
+
+type DealSectionProps = {
+  dealOfWeek: IDeal[];
+};
+
 const renderer = ({ days, hours, minutes, seconds }: any) => {
   // Render a countdown
   return (
@@ -83,7 +95,7 @@ const renderer = ({ days, hours, minutes, seconds }: any) => {
   );
 };
 
-const DealSection = () => {
+const DealSection: FC<DealSectionProps> = ({ dealOfWeek }) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
@@ -145,7 +157,7 @@ const DealSection = () => {
               modules={[FreeMode]}
               className="mySwiper mt-10"
             >
-              {bestSellers.map((bestSeller) => (
+              {dealOfWeek.map((bestSeller) => (
                 <SwiperSlide key={bestSeller.id}>
                   <CollectionCard collection={bestSeller} deal />
                 </SwiperSlide>

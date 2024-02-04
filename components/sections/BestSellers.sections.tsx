@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,38 +14,19 @@ import { FreeMode } from "swiper/modules";
 // Components
 import CollectionCard from "../cards/Collection.cards";
 
-const bestSellers = [
-  {
-    id: 1,
-    image: "product-5-1.jpg",
-    category: "Dresses",
-    title: "Calvin Shorts",
-    price: 63,
-  },
-  {
-    id: 2,
-    image: "product-6-1.jpg",
-    category: "Dresses",
-    title: "Calvin Shorts",
-    price: 63,
-  },
-  {
-    id: 3,
-    image: "product-7-1.jpg",
-    category: "Dresses",
-    title: "Calvin Shorts",
-    price: 63,
-  },
-  {
-    id: 4,
-    image: "product-8-1.jpg",
-    category: "Dresses",
-    title: "Calvin Shorts",
-    price: 63,
-  },
-];
+type IBestSellers = {
+  id: number;
+  image: string;
+  category: string;
+  title: string;
+  price: number;
+};
 
-const BestSellersSection = () => {
+type BestSellersSectionProps = {
+  bestSellers: IBestSellers[];
+};
+
+const BestSellersSection: FC<BestSellersSectionProps> = ({ bestSellers }) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {

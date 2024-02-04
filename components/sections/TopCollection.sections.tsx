@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 // components
 import CollectionCard from "../cards/Collection.cards";
@@ -43,43 +43,17 @@ const tabs = [
   },
 ];
 
-const collections = [
-  {
-    id: 1,
-    image: "product-1-1.jpg",
-    category: "Dresses",
-    title: "Calvin Shorts",
-    price: 63,
-  },
-  {
-    id: 2,
-    image: "product-2-1.jpg",
-    category: "Dresses",
-    title: "Calvin Shorts",
-    price: 63,
-  },
-  {
-    id: 3,
-    image: "product-3-1.jpg",
-    category: "Dresses",
-    title: "Calvin Shorts",
-    price: 63,
-  },
-  {
-    id: 4,
-    image: "product-4-1.jpg",
-    category: "Dresses",
-    title: "Calvin Shorts",
-    price: 63,
-  },
-  {
-    id: 5,
-    image: "product-0-1.jpg",
-    category: "Dresses",
-    title: "Calvin Shorts",
-    price: 63,
-  },
-];
+type ICollection = {
+  id: number;
+  image: string;
+  category: string;
+  title: string;
+  price: number;
+};
+
+type TopCollectionSectionProps = {
+  topCollections: ICollection[];
+};
 
 const product = {
   id: 1,
@@ -92,7 +66,9 @@ const product = {
   categories: ["men", "jackets", "Casual & Urban Wear"],
   tags: ["biker", "bomber", "black", "leather"],
 };
-const TopCollectionSection = () => {
+const TopCollectionSection: FC<TopCollectionSectionProps> = ({
+  topCollections,
+}) => {
   // states
   const [selectedTab, setSelectedTab] = useState("all");
   const [openModal, setOpenModal] = useState(false);
@@ -145,7 +121,7 @@ const TopCollectionSection = () => {
           modules={[FreeMode]}
           className="mySwiper mt-10"
         >
-          {collections.map((collection) => (
+          {topCollections.map((collection) => (
             <SwiperSlide key={collection.id}>
               <CollectionCard
                 setOpenModal={setOpenModal}

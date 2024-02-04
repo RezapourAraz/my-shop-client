@@ -1,3 +1,190 @@
 {
-  "basket": []
+  "topCategories": [
+    {
+      "id": 1,
+      "title": "Shoes",
+      "image": "category_6.png"
+    },
+    {
+      "id": 2,
+      "title": "Jeans",
+      "image": "category_7.png"
+    },
+    {
+      "id": 3,
+      "title": "Shirts",
+      "image": "category_8.png"
+    },
+    {
+      "id": 4,
+      "title": "Handbags",
+      "image": "category_1.png"
+    },
+    {
+      "id": 5,
+      "title": "Clothings",
+      "image": "category_2.png"
+    },
+    {
+      "id": 6,
+      "title": "Jackets",
+      "image": "category_3.png"
+    },
+    {
+      "id": 7,
+      "title": "Watches",
+      "image": "category_4.png"
+    },
+    {
+      "id": 8,
+      "title": "Dresses",
+      "image": "category_5.png"
+    }
+  ],
+  "topCollections": [
+    {
+      "id": 1,
+      "image": "product-1-1.jpg",
+      "category": "Dresses",
+      "title": "Calvin Shorts",
+      "price": 63
+    },
+    {
+      "id": 2,
+      "image": "product-2-1.jpg",
+      "category": "Dresses",
+      "title": "Calvin Shorts",
+      "price": 63
+    },
+    {
+      "id": 3,
+      "image": "product-3-1.jpg",
+      "category": "Dresses",
+      "title": "Calvin Shorts",
+      "price": 63
+    },
+    {
+      "id": 4,
+      "image": "product-4-1.jpg",
+      "category": "Dresses",
+      "title": "Calvin Shorts",
+      "price": 63
+    },
+    {
+      "id": 5,
+      "image": "product-0-1.jpg",
+      "category": "Dresses",
+      "title": "Calvin Shorts",
+      "price": 63
+    }
+  ],
+  "lookBooks": [
+    {
+      "id": 1,
+      "name": "Women Seasons",
+      "title": "Floral Dress",
+      "image": "lookbook-1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Women Seasons",
+      "title": "Trench Coat",
+      "image": "lookbook-2.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Men Seasons",
+      "title": "Folk Pants",
+      "image": "lookbook-3.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Men Seasons",
+      "title": "Cos Jacket",
+      "image": "lookbook-4.jpg"
+    }
+  ],
+  "bestSellers": [
+    {
+      "id": 1,
+      "image": "product-5-1.jpg",
+      "category": "Dresses",
+      "title": "Calvin Shorts",
+      "price": 63
+    },
+    {
+      "id": 2,
+      "image": "product-6-1.jpg",
+      "category": "Dresses",
+      "title": "Calvin Shorts",
+      "price": 63
+    },
+    {
+      "id": 3,
+      "image": "product-7-1.jpg",
+      "category": "Dresses",
+      "title": "Calvin Shorts",
+      "price": 63
+    },
+    {
+      "id": 4,
+      "image": "product-8-1.jpg",
+      "category": "Dresses",
+      "title": "Calvin Shorts",
+      "price": 63
+    }
+  ],
+  "dealOfWeek": [
+    {
+      "id": 1,
+      "image": "product-10-1.jpg",
+      "category": "Dresses",
+      "title": "Cropped Faux Leather Jacket",
+      "price": 63
+    },
+    {
+      "id": 2,
+      "image": "product-11-1.jpg",
+      "category": "Dresses",
+      "title": "Calvin Shorts",
+      "price": 63
+    },
+    {
+      "id": 3,
+      "image": "product-12-1.jpg",
+      "category": "Dresses",
+      "title": "Kriby T-Shirt",
+      "price": 63
+    },
+    {
+      "id": 4,
+      "image": "product-13-1.jpg",
+      "category": "Dresses",
+      "title": "Cableknit Shawl",
+      "price": 63
+    }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "title": "What Freud Can Teach Us About Furniture",
+      "user": "Admin",
+      "date": "2024/01/01",
+      "image": "post2.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Habitant morbi tristique senectus",
+      "user": "Admin",
+      "date": "2023/04/01",
+      "image": "post3.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Woman with good shoes is never be ugly place",
+      "user": "Admin",
+      "date": "2024/02/01",
+      "image": "post1.jpg"
+    }
+  ]
 }

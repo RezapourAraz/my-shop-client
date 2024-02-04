@@ -1,34 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 import LookBookCard from "../cards/LookBook.cards";
 
-const lookBooks = [
-  {
-    id: 1,
-    name: "Women Seasons",
-    title: "Floral Dress",
-    image: "lookbook-1.jpg",
-  },
-  {
-    id: 2,
-    name: "Women Seasons",
-    title: "Trench Coat",
-    image: "lookbook-2.jpg",
-  },
-  {
-    id: 1,
-    name: "Men Seasons",
-    title: "Folk Pants",
-    image: "lookbook-3.jpg",
-  },
-  {
-    id: 1,
-    name: "Men Seasons",
-    title: "Cos Jacket",
-    image: "lookbook-4.jpg",
-  },
-];
+type ILookBook = {
+  id: 1;
+  name: string;
+  title: string;
+  image: string;
+};
 
-const LookBookSection = () => {
+type LookBookSectionProps = {
+  lookBooks: ILookBook[];
+};
+
+const LookBookSection: FC<LookBookSectionProps> = ({ lookBooks }) => {
   return (
     <section className="bg-gray-100">
       <div className="md:container md:mx-auto py-24">

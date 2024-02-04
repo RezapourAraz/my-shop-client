@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -54,7 +54,17 @@ const categories = [
   },
 ];
 
-const CategorySection = () => {
+type ICategory = {
+  id: number;
+  title: string;
+  image: string;
+};
+
+type CategorySectionProps = {
+  categories: ICategory[];
+};
+
+const CategorySection: FC<CategorySectionProps> = ({ categories }) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {

@@ -12,15 +12,15 @@ import SocialSection from "@/components/sections/Social.sections";
 import MainLayout from "@/layouts/Main.layouts";
 import { getLocalData } from "@/lib/localdata";
 
-export default function Home({ basket }: any) {
+export default function Home({ localData }: any) {
   return (
-    <MainLayout basket={basket}>
-      <CategorySection />
-      <TopCollectionSection />
-      <LookBookSection />
-      <BestSellersSection />
-      <DealSection />
-      <OurBlogsSection />
+    <MainLayout>
+      <CategorySection categories={localData.topCategories} />
+      <TopCollectionSection topCollections={localData.topCollections} />
+      <LookBookSection lookBooks={localData.lookBooks} />
+      <BestSellersSection bestSellers={localData.bestSellers} />
+      <DealSection dealOfWeek={localData.dealOfWeek} />
+      <OurBlogsSection blogs={localData.blogs} />
       <InfoSection />
       <SocialSection />
     </MainLayout>
@@ -30,9 +30,7 @@ export default function Home({ basket }: any) {
 export async function getStaticProps() {
   const localData = await getLocalData();
 
-  const { basket } = localData;
-
   return {
-    props: { basket },
+    props: { localData },
   };
 }

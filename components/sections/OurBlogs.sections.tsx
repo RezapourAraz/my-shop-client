@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 // components
 import BlogCard from "../cards/Blog.cards";
@@ -14,31 +14,19 @@ import "swiper/css/pagination";
 // import required modules
 import { FreeMode } from "swiper/modules";
 
-const blogs = [
-  {
-    id: 1,
-    title: "What Freud Can Teach Us About Furniture",
-    user: "Admin",
-    date: new Date(),
-    image: "post2.jpg",
-  },
-  {
-    id: 2,
-    title: "Habitant morbi tristique senectus",
-    user: "Admin",
-    date: new Date(),
-    image: "post3.jpg",
-  },
-  {
-    id: 3,
-    title: "Woman with good shoes is never be ugly place",
-    user: "Admin",
-    date: new Date(),
-    image: "post1.jpg",
-  },
-];
+export type IBlog = {
+  id: number;
+  title: string;
+  user: string;
+  date: string;
+  image: string;
+};
 
-const OurBlogsSection = () => {
+type OurBlogsSectionProps = {
+  blogs: IBlog[];
+};
+
+const OurBlogsSection: FC<OurBlogsSectionProps> = ({ blogs }) => {
   // states
   const [width, setWidth] = useState(0);
 
