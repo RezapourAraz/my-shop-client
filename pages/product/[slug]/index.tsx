@@ -5,6 +5,10 @@ import MainLayout from "@/layouts/Main.layouts";
 
 // icons
 import { IoIosExpand } from "react-icons/io";
+import { FaRegHeart } from "react-icons/fa";
+import { FiShare2 } from "react-icons/fi";
+import BestSellersSection from "@/components/sections/BestSellers.sections";
+import { getLocalData } from "@/lib/localdata";
 
 const productImages = [
   "/product_0.jpg",
@@ -31,9 +35,31 @@ const productDetail = {
   storage: "Relaxed fit shirt-style dress with a rugged",
 };
 
-const ProductDetail = () => {
+const tabs = ["Description", "Additional Information", "Reviews"];
+
+const reviews = [
+  {
+    id: 1,
+    username: "Benjam Porter",
+    rating: 5,
+    content:
+      "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est…",
+    date: "2020-01-01",
+  },
+  {
+    id: 2,
+    username: "Janice Miller",
+    rating: 5,
+    content:
+      "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est…",
+    date: "2020-01-01",
+  },
+];
+
+const ProductDetail = ({ localData, params }: any) => {
   // states
   const [selectedImage, setSelectedImage] = useState(productImages[0]);
+  const [selectedTab, setSelectedTab] = useState("Description");
 
   // handlers
   const changeImageHandler = (img: string) => {
@@ -63,8 +89,8 @@ const ProductDetail = () => {
         <div className="col-span-5 p-2 ">
           <div className="my-2 relative ">
             <img src={selectedImage} width="100%" />
-            <div className="absolute bottom-4 right-4 bg-white p-2 rounded-full cursor-pointer">
-              <IoIosExpand className="text-3xl" />
+            <div className="absolute bottom-4 right-4 bg-white p-3 rounded-full cursor-pointer">
+              <IoIosExpand className="text-2xl" />
             </div>
           </div>
         </div>
@@ -85,14 +111,179 @@ const ProductDetail = () => {
             <div>
               <p className="text-sm my-6 ">{productDetail.info}</p>
             </div>
+            <div className="flex gap-8 my-8 items-center">
+              <div className=" flex gap-3 border-2 items-center">
+                <button className="p-3">+</button>
+                <p className="p-3">0</p>
+                <button className="p-3">-</button>
+              </div>
+              <div className="flex gap-2 w-full">
+                <button className="bg-black text-white p-3 w-full">
+                  ADD TO CARD
+                </button>
+              </div>
+            </div>
+            <div className="flex gap-8 items-center">
+              <div className="flex gap-2 items-center cursor-pointer">
+                <FaRegHeart className="text-sm " />
+                <p className="text-sm ">ADD TO WISHLIST</p>
+              </div>
+              <div className="cursor-pointer">
+                <FiShare2 />
+              </div>
+            </div>
+            <div className="mt-20">
+              <p className="text-gray-500">
+                SKU: <span>N/A</span>
+              </p>
+              <div className="flex gap-1">
+                <p className="text-gray-500">CATEGORY:</p>
+                {productDetail.categories.map((category) => (
+                  <div key={category}>
+                    <p className="text-gray-500">{category},</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex gap-1">
+                <p className="text-gray-500">TAGS:</p>
+                {productDetail.tags.map((tag) => (
+                  <div key={tag}>
+                    <p className="text-gray-500">{tag},</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <p>DESCRIPTION</p>
+        <div className="col-span-11 flex justify-center my-10">
+          {tabs.map((tab) => (
+            <div
+              key={tab}
+              className={`${
+                selectedTab === tab && "border-b-2"
+              } p-2 cursor-pointer mx-5`}
+              onClick={() => setSelectedTab(tab)}
+            >
+              <p className="text-lg p-2">{tab}</p>
+            </div>
+          ))}
         </div>
+        {selectedTab === "Description" && (
+          <div className="col-span-11 p-14">{productDetail.description}</div>
+        )}
+        {selectedTab === "Additional Information" && (
+          <div className="col-span-11 p-14 flex justify-center">
+            <table className="border-spacing-x-5 border-separate">
+              {Object.keys(productDetail).map((key) => {
+                const keys = ["weight", "dimensions", "sizes", "colors"];
+                if (!keys.includes(key)) return null;
+
+                let content = productDetail[key as keyof typeof productDetail];
+                if (key === "colors" || key === "sizes") {
+                  content = (content as string[]).join(", ");
+                }
+
+                return (
+                  <tr className="text-left" key={key}>
+                    <th className="capitalize">{key}</th>
+                    <td>{content}</td>
+                  </tr>
+                );
+              })}
+              {/* <tr className="text-left">
+                <th>Weight</th>
+                <td>{productDetail.weight}</td>
+              </tr>
+              <tr className="text-left">
+                <th>Dimensions</th>
+                <td>{productDetail.dimensions}</td>
+              </tr>
+              <tr className="text-left">
+                <th>Sizes</th>
+                <td>{productDetail.sizes.join(", ")}</td>
+              </tr>
+              <tr className="text-left">
+                <th>Colors</th>
+                <td>{productDetail.colors.join(", ")}</td>
+              </tr> */}
+            </table>
+            {/* <div>
+              <div className="p-2 flex gap-20 items-center">
+                <p className="text-lg w-20">Weight</p>
+                <p className="text-sm">{productDetail.weight}KG</p>
+              </div>
+              <div className="p-2 flex gap-20 items-center">
+                <p className="text-lg w-20">Dimensions</p>
+                <p className="text-sm">{productDetail.dimensions} cm</p>
+              </div>
+              <div className="p-2 flex gap-20 items-center">
+                <p className="text-lg w-20">Sizes</p>
+                <div className="flex gap-2">
+                  {productDetail.sizes.map((size) => (
+                    <p className="text-sm">{size}</p>
+                  ))}
+                </div>
+              </div>
+              <div className="p-2 flex gap-20 items-center">
+                <p className="text-lg w-20">Colors</p>
+                <div className="flex gap-2">
+                  {productDetail.colors.map((color) => (
+                    <p className="text-sm">{color}</p>
+                  ))}
+                </div>
+              </div>
+              <div className="p-2 flex gap-2 items-center">
+                <p className="text-lg w-20">Storage</p>
+                <p className="text-sm">{productDetail.storage}</p>
+              </div>
+            </div> */}
+          </div>
+        )}
+        {selectedTab === "Reviews" && (
+          <div className="grid col-span-11 p-14">
+            <div className="col-span-11 mb-10">
+              <p className="text-xl">Reviews</p>
+            </div>
+            {reviews.map((review) => (
+              <div className="grid grid-cols-11 col-span-11 gap-5 my-2 border-b-2">
+                <div className="col-span-1">
+                  <div className="w-12 h-12 rounded-full bg-gray-400" />
+                </div>
+                <div className="col-span-10">
+                  <div>
+                    <p className="text-sm text-gray-600">{review.username}</p>
+                    <p className="text-sm text-gray-600">
+                      {new Date(review.date).toDateString()}
+                    </p>
+                  </div>
+                  <div className="my-2">
+                    <p className="text-sm">{review.content}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
+      {localData && <BestSellersSection bestSellers={localData?.bestSellers} />}
     </MainLayout>
   );
 };
+
+export async function getStaticProps({ params }: any) {
+  const localData = await getLocalData();
+
+  return {
+    props: { localData, params },
+  };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [{ params: { slug: "/product/2" } }],
+    fallback: true,
+  };
+}
 
 export default ProductDetail;

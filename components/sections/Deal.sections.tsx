@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import { FreeMode } from "swiper/modules";
 import CollectionCard from "../cards/Collection.cards";
 import Countdown from "react-countdown";
+import ProductModal from "../modals/Product.modals";
 
 const bestSellers = [
   {
@@ -56,6 +57,18 @@ type DealSectionProps = {
   dealOfWeek: IDeal[];
 };
 
+const product = {
+  id: 1,
+  image: "quickview_1.jpg",
+  title: "Lightweight Puffer Jacket With a Hood",
+  price: 449,
+  desc: "Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, ut aliquet magna posuere eget.",
+  colors: ["red", "black", "grey"],
+  sizes: ["xs", "s", "m", "l", "xl"],
+  categories: ["men", "jackets", "Casual & Urban Wear"],
+  tags: ["biker", "bomber", "black", "leather"],
+};
+
 const renderer = ({ days, hours, minutes, seconds }: any) => {
   // Render a countdown
   return (
@@ -96,7 +109,9 @@ const renderer = ({ days, hours, minutes, seconds }: any) => {
 };
 
 const DealSection: FC<DealSectionProps> = ({ dealOfWeek }) => {
+  // states
   const [width, setWidth] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -159,13 +174,22 @@ const DealSection: FC<DealSectionProps> = ({ dealOfWeek }) => {
             >
               {dealOfWeek.map((bestSeller) => (
                 <SwiperSlide key={bestSeller.id}>
-                  <CollectionCard collection={bestSeller} deal />
+                  <CollectionCard
+                    collection={bestSeller}
+                    deal
+                    setOpenModal={setOpenModal}
+                  />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
         </div>
       </div>
+      <ProductModal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        product={product}
+      />
     </section>
   );
 };

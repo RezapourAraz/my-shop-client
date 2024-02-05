@@ -13,6 +13,7 @@ import { FreeMode } from "swiper/modules";
 
 // Components
 import CollectionCard from "../cards/Collection.cards";
+import ProductModal from "../modals/Product.modals";
 
 type IBestSellers = {
   id: number;
@@ -26,8 +27,22 @@ type BestSellersSectionProps = {
   bestSellers: IBestSellers[];
 };
 
+const product = {
+  id: 1,
+  image: "quickview_1.jpg",
+  title: "Lightweight Puffer Jacket With a Hood",
+  price: 449,
+  desc: "Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, ut aliquet magna posuere eget.",
+  colors: ["red", "black", "grey"],
+  sizes: ["xs", "s", "m", "l", "xl"],
+  categories: ["men", "jackets", "Casual & Urban Wear"],
+  tags: ["biker", "bomber", "black", "leather"],
+};
+
 const BestSellersSection: FC<BestSellersSectionProps> = ({ bestSellers }) => {
+  // states
   const [width, setWidth] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -64,11 +79,19 @@ const BestSellersSection: FC<BestSellersSectionProps> = ({ bestSellers }) => {
         >
           {bestSellers.map((bestSeller) => (
             <SwiperSlide key={bestSeller.id}>
-              <CollectionCard collection={bestSeller} />
+              <CollectionCard
+                setOpenModal={setOpenModal}
+                collection={bestSeller}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
+      <ProductModal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        product={product}
+      />
     </section>
   );
 };
