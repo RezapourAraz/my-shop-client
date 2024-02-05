@@ -4,6 +4,7 @@ import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import ProductModal from "../modals/Product.modals";
+import { useRouter } from "next/router";
 
 // types
 type ICollectionCardProps = {
@@ -23,10 +24,16 @@ const CollectionCard: FC<ICollectionCardProps> = ({
   deal = false,
   setOpenModal,
 }) => {
+  // hooks
+  const router = useRouter();
+
   return (
     <>
       <div>
-        <div className=" relative collection-card">
+        <div
+          className=" relative collection-card cursor-pointer"
+          onClick={() => router.push("/product/1")}
+        >
           <div>
             <img width="100%" height="100%" src={collection.image} />
           </div>
@@ -58,6 +65,7 @@ const CollectionCard: FC<ICollectionCardProps> = ({
             className={`font-bold cursor-pointer ${
               deal ? "text-white" : "initial"
             }`}
+            onClick={() => router.push("/product/1")}
           >
             {collection.title}
           </p>

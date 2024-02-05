@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React, { Dispatch, FC, SetStateAction, useEffect } from "react";
 
 // Icons
@@ -52,6 +53,9 @@ const BasketSection: FC<IBasketSectionProps> = ({
   openBasket,
   setOpenBasket,
 }) => {
+  // hooks
+  const router = useRouter();
+
   useEffect(() => {
     const body = document.getElementsByTagName("body");
 
@@ -126,7 +130,10 @@ const BasketSection: FC<IBasketSectionProps> = ({
           </div>
 
           <div>
-            <button className="bg-gray-500 text-white p-3 w-full mt-4">
+            <button
+              className="bg-gray-500 text-white p-3 w-full mt-4"
+              onClick={() => router.push("/card")}
+            >
               VIEW BAG
             </button>
             <button className="bg-black text-white p-3 w-full mt-4">
