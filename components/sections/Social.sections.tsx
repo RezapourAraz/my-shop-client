@@ -10,8 +10,8 @@ import { FaPinterest } from "react-icons/fa";
 const SocialSection = () => {
   return (
     <section className="border-t-2">
-      <div className="md:container md:mx-auto ">
-        <div className="grid grid-cols-2 ">
+      <div className="md:container md:mx-auto">
+        <div className="grid md:grid-cols-2 sm:grid-cols-1">
           <div className="col-span-1 h-full w-full">
             <div className="flex flex-col items-center p-10 ">
               <h5 className="p-2">Stay In Touch</h5>

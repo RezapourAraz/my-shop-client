@@ -13,7 +13,7 @@ type ILookBookProps = {
 const LookBookCard: FC<ILookBookProps> = ({ lookBook }) => {
   return (
     <div>
-      <div className=" w-80 relative">
+      <div className="md:w-80 sm:w-full relative">
         <img width="100%" src={lookBook.image} alt={lookBook.title} />
 
         <div className="absolute bottom-2 left-2">

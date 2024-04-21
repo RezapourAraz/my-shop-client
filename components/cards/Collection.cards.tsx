@@ -57,7 +57,7 @@ const CollectionCard: FC<ICollectionCardProps> = ({
             </div>
           </div>
         </div>
-        <div>
+        <div className="px-1">
           <p className={`text-sm ${deal ? "text-white" : "initial"}`}>
             {collection.category}
           </p>

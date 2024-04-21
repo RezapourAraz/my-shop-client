@@ -72,7 +72,7 @@ const product = {
 const renderer = ({ days, hours, minutes, seconds }: any) => {
   // Render a countdown
   return (
-    <div className="flex gap-2 ">
+    <div className="flex gap-2">
       <div className="text-center gap-2 flex flex-col ">
         <p className="text-white text-2xl">{days >= 10 ? days : `0${days}`}</p>
         <p className="text-white text-sm">Days</p>
@@ -128,10 +128,9 @@ const DealSection: FC<DealSectionProps> = ({ dealOfWeek }) => {
 
   return (
     <section
-      className=""
+      className="sm:h-900 md:h-650"
       style={{
         background: "url(deal_bg.jpg)",
-        height: "650px",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -141,7 +140,7 @@ const DealSection: FC<DealSectionProps> = ({ dealOfWeek }) => {
         <div className="mb-8 text-center">
           <h6 className="text-3xl font-bold text-gray-100">Deal Of The Week</h6>
         </div>
-        <div className="grid md:grid-cols-5 sm:grid-cols-2 items-center">
+        <div className="grid md:grid-cols-5 sm:grid-cols-1  items-center">
           <div className="col-span-1 items-center">
             <div>
               <p className="text-white text-2xl">Summer Sale</p>

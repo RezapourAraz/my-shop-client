@@ -7,8 +7,8 @@ const MainFooter = () => {
   return (
     <footer className="bg-black">
       <div className="md:container md:mx-auto py-24">
-        <div className="grid grid-cols-5">
-          <div className="col-span-1">
+        <div className="grid md:grid-cols-5 xs:grid-coles-12">
+          <div className="md:col-span-1">
             <div className="flex flex-col">
               <div className="flex items-center mb-5">
                 <h3 className="text-3xl font-bold text-white">SHOP</h3>
@@ -81,7 +81,7 @@ const MainFooter = () => {
           </div>
         </div>
       </div>
-      <div className="border-t-2 border-gray-500 md:container md:mx-auto py-12 flex justify-between">
+      <div className="border-t-2 border-gray-500 md:container md:mx-auto py-8 my-8 flex justify-between">
         <p className="text-sm text-white">SHOP©{new Date().getFullYear()}</p>
         <p className="text-sm text-white">Created By Araz Rezapour</p>
       </div>

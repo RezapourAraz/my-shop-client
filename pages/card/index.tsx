@@ -37,7 +37,7 @@ const ShoppingCard = () => {
   return (
     <MainLayout>
       <CardStepper />
-      <div className="grid grid-cols-3 md:container md:mx-auto">
+      <div className="grid md:grid-cols-3 sm:grid-cols-1 md:container md:mx-auto overflow-x-auto">
         <div className="col-span-2">
           {basketItems.map((item) => (
             <BasketProductCard item={item} />
@@ -52,7 +52,7 @@ const ShoppingCard = () => {
             </div>
           </div>
         </div>
-        <div className=" col-span-1 p-4">
+        <div className="col-span-1 p-4">
           <div className=" p-8 border-2">
             <p className="font-bold">CART TOTALS</p>
             <div className="grid grid-cols-5 py-4">

@@ -25,14 +25,14 @@ const BasketProductCard: FC<BasketProductCardProps> = ({ item }) => {
         </div>
         <div>
           <div>
-            <p>{item.title}</p>
-            <p>Color: {item.color}</p>
-            <p>Size: {item.size}</p>
+            <p className="text-nowrap">{item.title}</p>
+            <p className="text-nowrap">Color: {item.color}</p>
+            <p className="text-nowrap">Size: {item.size}</p>
           </div>
         </div>
       </div>
       <div>
-        <p>${item.price}</p>
+        <p className="text-nowrap">${item.price}</p>
       </div>
       <div className="flex px-2 border-2">
         <button className="p-2">-</button>

@@ -89,7 +89,10 @@ const TopHeader: FC<ITopHeaderProps> = ({
           </div>
         </div>
         <div>
-          <CgShoppingBag className="text-2xl text-white" />
+          <CgShoppingBag
+            onClick={() => router.push("/card")}
+            className="text-2xl text-white"
+          />
         </div>
       </div>
     </header>

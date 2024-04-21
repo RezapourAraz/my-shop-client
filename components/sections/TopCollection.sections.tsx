@@ -93,7 +93,7 @@ const TopCollectionSection: FC<TopCollectionSectionProps> = ({
             Our Top Collections
           </h6>
         </div>
-        <div className="flex justify-center gap-10">
+        <div className="flex justify-center gap-10 overflow-x-auto">
           {tabs.map((tab) => (
             <div
               key={tab.id}
@@ -102,7 +102,7 @@ const TopCollectionSection: FC<TopCollectionSectionProps> = ({
                 selectedTab === tab.value ? "border-b-2" : "border-b-0"
               } cursor-pointer hover:border-b-2`}
             >
-              <p className="p-1">{tab.name}</p>
+              <p className="p-1 text-nowrap">{tab.name}</p>
             </div>
           ))}
         </div>

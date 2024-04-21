@@ -1,4 +1,5 @@
 import React, { FC, ReactNode, useState } from "react";
+import { useRouter } from "next/router";
 
 // Components
 import MainBanner from "@/components/banners/Main.banners";
@@ -6,7 +7,6 @@ import TopHeader from "@/components/headers/Top.headers";
 import BasketSection from "@/components/sections/Basket.sections";
 import LoginSection from "@/components/sections/Login.sections";
 import MainFooter from "@/components/footers/Main.footers";
-import { useRouter } from "next/router";
 
 // types
 type MainLayoutProps = {

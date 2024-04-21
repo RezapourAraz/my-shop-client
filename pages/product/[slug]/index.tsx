@@ -68,8 +68,8 @@ const ProductDetail = ({ localData, params }: any) => {
 
   return (
     <MainLayout>
-      <div className="grid grid-cols-11 md:container md:mx-auto">
-        <div className="col-span-1 p-2">
+      <div className="grid md:grid-cols-11  md:container  md:mx-auto">
+        <div className="md:col-span-1 sm:col-span-2 p-2">
           {productImages.map((image) => (
             <div
               key={image}
@@ -86,7 +86,7 @@ const ProductDetail = ({ localData, params }: any) => {
             </div>
           ))}
         </div>
-        <div className="col-span-5 p-2 ">
+        <div className="md:col-span-5 sm:col-span-10 p-2 ">
           <div className="my-2 relative ">
             <img src={selectedImage} width="100%" />
             <div className="absolute bottom-4 right-4 bg-white p-3 rounded-full cursor-pointer">
@@ -94,7 +94,7 @@ const ProductDetail = ({ localData, params }: any) => {
             </div>
           </div>
         </div>
-        <div className="col-span-5 p-2 ml-10">
+        <div className="md:col-span-5 sm:col-span-12 p-2 md:ml-10">
           <div className="my-2">
             <div>
               <p className="text-md font-bold">HOME / PRODUCT</p>
@@ -156,7 +156,7 @@ const ProductDetail = ({ localData, params }: any) => {
             </div>
           </div>
         </div>
-        <div className="col-span-11 flex justify-center my-10">
+        {/* <div className="md:col-span-11 sm:col-span-12 flex justify-center my-10">
           {tabs.map((tab) => (
             <div
               key={tab}
@@ -168,9 +168,11 @@ const ProductDetail = ({ localData, params }: any) => {
               <p className="text-lg p-2">{tab}</p>
             </div>
           ))}
-        </div>
+        </div> */}
         {selectedTab === "Description" && (
-          <div className="col-span-11 p-14">{productDetail.description}</div>
+          <div className="md:col-span-11 sm:col-span-12  p-14">
+            {productDetail.description}
+          </div>
         )}
         {selectedTab === "Additional Information" && (
           <div className="col-span-11 p-14 flex justify-center">
